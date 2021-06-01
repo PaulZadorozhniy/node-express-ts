@@ -31,4 +31,8 @@ export class SearchResumeComponent implements OnInit {
       skipLocationChange: true,
     })
   }
+
+  searchVacancy() {
+    this.router.navigate(['/search'], { skipLocationChange: true })
+  }
 }

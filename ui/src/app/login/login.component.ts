@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.loginForm!.value).subscribe(
       (data) => {
         console.log(data)
-        this.router.navigate(['/search'], { skipLocationChange: true })
+        this.router.navigate(['/search-resume'], { skipLocationChange: true })
       },
       (error) => {
         console.error(error)

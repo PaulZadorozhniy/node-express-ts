@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { JobsService } from '../jobs.service';
+import { Component, Input, OnInit } from '@angular/core'
+import { JobsService } from '../jobs.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-search-page',
@@ -7,24 +8,28 @@ import { JobsService } from '../jobs.service';
   styleUrls: [],
 })
 export class SearchPageComponent implements OnInit {
-  public isRecent: boolean = true;
+  public isRecent: boolean = true
 
-  constructor(private jobsService: JobsService) {}
+  constructor(private jobsService: JobsService, private router: Router) {}
 
   ngOnInit(): void {
-    this.jobsService.getRecentJobs();
+    this.jobsService.getRecentJobs()
   }
 
   setSearchValue(input: string): void {
-    this.jobsService.saveSearchInput(input);
+    this.jobsService.saveSearchInput(input)
   }
 
   setCityValue(input: string): void {
-    this.jobsService.setCityValue(input);
+    this.jobsService.setCityValue(input)
   }
 
   submitSearch() {
-    this.isRecent = false;
-    this.jobsService.getAllJobs();
+    this.isRecent = false
+    this.jobsService.getAllJobs()
+  }
+
+  searchResume() {
+    this.router.navigate(['/search-resume'], { skipLocationChange: true })
   }
 }
