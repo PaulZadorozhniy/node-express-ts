@@ -11,7 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { JobDetailsComponent } from './job-details/job-details.component'
 import { RegistrationComponent } from './registration/registration.component'
 import { LoginComponent } from './login/login.component';
-import { SearchResumeComponent } from './search-resume/search-resume.component'
+import { SearchResumeComponent } from './search-resume/search-resume.component';
+import { ResumeDetailsComponent } from './resume-details/resume-details.component'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SearchResumeComponent } from './search-resume/search-resume.component'
     RegistrationComponent,
     LoginComponent,
     SearchResumeComponent,
+    ResumeDetailsComponent,
   ],
   imports: [
     BrowserModule,

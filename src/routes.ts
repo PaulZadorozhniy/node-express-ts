@@ -45,11 +45,15 @@ routes.post('/resume/search', async (req, res) => {
     req.body
   )
 
-  // let jobRepository = await getRepository(Job)
-
-  // jobRepository.save(result.data.documents)
-
   return res.json(result.data.documents)
+})
+
+routes.get('/resume/:id', async (req, res) => {
+  const result = await axios.get(
+    `https://employer-api.rabota.ua/resume/${req.params.id}`
+  )
+
+  return res.json(result.data)
 })
 
 routes.get('/vacancy/search', async (req, res) => {

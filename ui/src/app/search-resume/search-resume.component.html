@@ -161,7 +161,7 @@
 
           <!-- Resume detail -->
           <div class="col-xs-12" *ngFor="let resume of resumeService.resumes">
-            <a class="item-block" href="resume-detail.html">
+            <a class="item-block" (click)="toResumeDetails(resume.resumeId)">
               <header>
                 <img class="resume-avatar" src="{{ resume.photo }}" alt="" />
                 <div class="hgroup">

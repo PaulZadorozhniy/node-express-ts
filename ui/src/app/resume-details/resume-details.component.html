@@ -1,0 +1,120 @@
+<div class="nav-on-header">
+  <!-- Page header -->
+  <header
+    class="page-header bg-img"
+    style="background-image: url(assets/img/bg-banner1.jpg)"
+  >
+    <div class="container" *ngIf="resume">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <img
+            src="https://d1x4jhnf86phze.cloudfront.net/{{ resume.photo }}"
+            alt=""
+          />
+        </div>
+
+        <div class="col-xs-12 col-sm-8 header-detail">
+          <div class="hgroup">
+            <h1>
+              {{ resume.name }} {{ resume.surname }} {{ resume.fatherName }}
+            </h1>
+            <h3>{{ resume.speciality }}</h3>
+          </div>
+          <hr />
+          <div
+            class="lead"
+            *ngFor="let skill of resume.skills"
+            [innerHtml]="skill.description"
+          ></div>
+
+          <ul class="details cols-2">
+            <li *ngIf="resume.salaryFull">
+              <i class="fa fa-money"></i>
+              <span>{{ resume.salaryFull }}</span>
+            </li>
+
+            <li *ngIf="resume.age">
+              <i class="fa fa-birthday-cake"></i>
+              <span>{{ resume.age }}</span>
+            </li>
+
+            <li *ngIf="resume.phone">
+              <i class="fa fa-phone"></i>
+              <span>{{ resume.phone }}</span>
+            </li>
+
+            <li *ngIf="resume.email">
+              <i class="fa fa-envelope"></i>
+              <a href="{{ resume.email }}">{{ resume.email }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END Page header -->
+
+  <!-- Main container -->
+  <main *ngIf="resume">
+    <!-- Education -->
+    <div class="container">
+      <header class="section-header">
+        <h2>Освіта</h2>
+      </header>
+
+      <div class="row">
+        <div class="col-xs-12" *ngFor="let education of resume.educations">
+          <div class="item-block">
+            <header>
+              <div class="hgroup">
+                <h4>Master <small>Computer Science</small></h4>
+                <h5>{{ education.name }}</h5>
+              </div>
+              <h6 class="time">{{ education.yearOfGraduation }}</h6>
+            </header>
+            <div
+              *ngIf="education.comment"
+              class="item-body"
+              [innerHtml]="education.comment"
+            ></div>
+            <div *ngIf="education.speciality" class="item-body">
+              <p>{{ education.speciality }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END Education -->
+
+    <!-- Work Experience -->
+    <div class="container">
+      <header class="section-header">
+        <h2>Досвід роботи</h2>
+      </header>
+      <div class="row">
+        <!-- Work item -->
+        <div class="col-xs-12" *ngFor="let experience of resume.experiences">
+          <div class="item-block">
+            <header>
+              <div class="hgroup">
+                <h4>{{ experience.company }}</h4>
+                <h5>{{ experience.position }}</h5>
+              </div>
+              <h6 class="time">
+                {{ experience.startWork }} - {{ experience.endWork }}
+              </h6>
+            </header>
+            <div class="item-body" [innerHtml]="experience.description"></div>
+          </div>
+        </div>
+
+        <!-- END Work item -->
+      </div>
+
+      <a class="btn btn-primary" (click)="back()">Назад</a>
+    </div>
+
+    <!-- END Work Experience -->
+  </main>
+  <!-- END Main container -->
+</div>

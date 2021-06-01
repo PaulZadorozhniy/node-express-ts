@@ -29,6 +29,12 @@ export class ResumeService {
       body.keyWords = this.input
     }
 
+    if (this.city) {
+      body.keyWords = this.input + ' ' + this.city
+    }
+
+    console.log(body)
+
     this.http
       .post<Resume[]>(`${this.baseUrl}/resume/search`, body)
       .subscribe((response) => {
@@ -37,11 +43,52 @@ export class ResumeService {
       })
   }
 
-  getJobDetails(id: string) {
-    const params = new HttpParams().set('ukrainian', true).set('id', id)
+  getResumeDetails(id: string) {
+    const params = new HttpParams().set('ukrainian', true)
 
-    return this.http.get<JobDetails>(`${this.baseUrl}/vacancy`, { params })
+    return this.http.get<JobDetails>(`${this.baseUrl}/resume/${id}`, { params })
   }
+}
+
+export interface ResumeDetails {
+  resumeId: number
+  name: string
+  birthDate: string
+  age: string
+  email: string
+  phone: string
+  speciality: string
+  addDate: string
+  salaryFull: string
+  link: string
+  language: string
+  surname: string
+  fatherName: string
+  photo: string
+  skills: Skill[]
+  educations: Education[]
+  experiences: ExperienceDetails[]
+}
+
+export interface ExperienceDetails {
+  position: string
+  company: string
+  description: string
+  startWork: string
+  endWork: string
+  companySite: string
+}
+
+export interface Education {
+  name: string
+  location: string
+  speciality: string
+  yearOfGraduation: number
+  comment: string
+}
+
+export interface Skill {
+  description: string
 }
 
 export interface Resume {
