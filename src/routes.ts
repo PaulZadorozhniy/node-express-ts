@@ -39,6 +39,19 @@ routes.post('/login', async (req, res) => {
   return res.json(user)
 })
 
+routes.post('/resume/search', async (req, res) => {
+  const result = await axios.post(
+    'https://employer-api.rabota.ua/resume/search',
+    req.body
+  )
+
+  // let jobRepository = await getRepository(Job)
+
+  // jobRepository.save(result.data.documents)
+
+  return res.json(result.data.documents)
+})
+
 routes.get('/vacancy/search', async (req, res) => {
   const result = await axios.get('https://api.rabota.ua/vacancy/search', {
     params: req.query,

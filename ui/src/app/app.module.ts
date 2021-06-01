@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { JobDetailsComponent } from './job-details/job-details.component'
 import { RegistrationComponent } from './registration/registration.component'
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { SearchResumeComponent } from './search-resume/search-resume.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LoginComponent } from './login/login.component'
     JobDetailsComponent,
     RegistrationComponent,
     LoginComponent,
+    SearchResumeComponent,
   ],
   imports: [
     BrowserModule,
