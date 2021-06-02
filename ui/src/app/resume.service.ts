@@ -116,34 +116,3 @@ export interface Experience {
   position: string
   startDate: string
 }
-
-const search = {
-  sort: 'Score',
-  page: 0,
-  ukrainian: true,
-  cityId: 0,
-  inside: true,
-  moveability: true,
-  educationId: 0,
-  parentId: 0,
-  rubricIds: [0],
-  ageFrom: 0,
-  ageTo: 0,
-  salaryFrom: 0,
-  salaryTo: 0,
-  sex: 0,
-  profLevelIds: [0],
-  scheduleId: 0,
-  languages: [{}],
-  period: 0,
-  branchId: 0,
-  experienceId: 0,
-  expSubRubricId: 0,
-  expRubricId: 0,
-  hasPhoto: true,
-  cvLanguage: 0,
-  keyWords: 'string',
-  isSynonym: true,
-  searchType: 'string',
-  lastSort: 'string',
-}
